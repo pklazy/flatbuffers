@@ -16,10 +16,11 @@
 
 extern crate smallvec;
 
-use std::cmp::max;
-use std::marker::PhantomData;
-use std::ptr::write_bytes;
-use std::slice::from_raw_parts;
+use alloc::vec::Vec;
+use core::cmp::max;
+use core::marker::PhantomData;
+use core::ptr::write_bytes;
+use core::slice::from_raw_parts;
 
 use endian_scalar::{read_scalar, emplace_scalar};
 use primitives::*;

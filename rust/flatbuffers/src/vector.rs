@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-use std::marker::PhantomData;
-use std::mem::size_of;
-use std::slice::from_raw_parts;
-use std::str::from_utf8_unchecked;
+use core::marker::PhantomData;
+use core::mem::size_of;
+use core::slice::from_raw_parts;
+use core::str::from_utf8_unchecked;
 
 #[cfg(target_endian = "little")]
 use endian_scalar::EndianScalar;

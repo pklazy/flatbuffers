@@ -1479,7 +1479,7 @@ class RustGenerator : public BaseGenerator {
     code_ += "";
     code_ += "  #[inline]";
     code_ += "  pub fn key_compare_with_value(&self, val: {{KEY_TYPE}}) -> "
-             " ::std::cmp::Ordering {";
+             " core::cmp::Ordering {";
     code_ += "    let key = self.{{FIELD_NAME}}();";
     code_ += "    key.cmp(&val)";
     code_ += "  }";
@@ -1650,7 +1650,7 @@ class RustGenerator : public BaseGenerator {
     code_ += "    #[inline]";
     code_ += "    fn push(&self, dst: &mut [u8], _rest: &[u8]) {";
     code_ += "        let src = unsafe {";
-    code_ += "            ::std::slice::from_raw_parts("
+    code_ += "            core::slice::from_raw_parts("
              "self as *const {{STRUCT_NAME}} as *const u8, Self::size())";
     code_ += "        };";
     code_ += "        dst.copy_from_slice(src);";
@@ -1662,7 +1662,7 @@ class RustGenerator : public BaseGenerator {
     code_ += "    #[inline]";
     code_ += "    fn push(&self, dst: &mut [u8], _rest: &[u8]) {";
     code_ += "        let src = unsafe {";
-    code_ += "            ::std::slice::from_raw_parts("
+    code_ += "            core::slice::from_raw_parts("
              "*self as *const {{STRUCT_NAME}} as *const u8, Self::size())";
     code_ += "        };";
     code_ += "        dst.copy_from_slice(src);";
@@ -1748,8 +1748,8 @@ class RustGenerator : public BaseGenerator {
   void GenNamespaceImports(const int white_spaces) {
       std::string indent = std::string(white_spaces, ' ');
       code_ += "";
-      code_ += indent + "use std::mem;";
-      code_ += indent + "use std::cmp::Ordering;";
+      code_ += indent + "use core::mem;";
+      code_ += indent + "use core::cmp::Ordering;";
       code_ += "";
       code_ += indent + "extern crate flatbuffers;";
       code_ += indent + "use self::flatbuffers::EndianScalar;";
